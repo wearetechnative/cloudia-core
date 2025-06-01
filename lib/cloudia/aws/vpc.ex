@@ -1,6 +1,7 @@
 defmodule Cloudia.Aws.Vpc do
   use Ash.Resource,
     domain: Cloudia.Aws,
+    extensions: [AshJsonApi.Resource],
     data_layer: Ash.DataLayer.Ets
 
   actions do
@@ -21,6 +22,9 @@ defmodule Cloudia.Aws.Vpc do
     belongs_to(:aws_account, Cloudia.Aws.AwsAccount)
     has_many(:subnets, Cloudia.Aws.Subnet)
   end
+
+  json_api do
+    type "vpc"
+  end
+
 end
-
-

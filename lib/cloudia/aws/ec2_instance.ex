@@ -1,6 +1,7 @@
 defmodule Cloudia.Aws.Ec2Instance do
   use Ash.Resource,
     domain: Cloudia.Aws,
+    extensions: [AshJsonApi.Resource],
     data_layer: Ash.DataLayer.Ets
 
   actions do
@@ -19,5 +20,10 @@ defmodule Cloudia.Aws.Ec2Instance do
   relationships do
     belongs_to(:subnet, Cloudia.Aws.Subnet)
   end
+
+  json_api do
+    type "ec2_instance"
+  end
+
 end
 

@@ -1,5 +1,5 @@
 defmodule CloudiaWeb.AshJsonApiRouter do
   use AshJsonApi.Router,
-    domains: [],
+    domains: [Cloudia.Aws],
     open_api: "/open_api"
 end

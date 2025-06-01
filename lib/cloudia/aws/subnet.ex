@@ -1,6 +1,7 @@
 defmodule Cloudia.Aws.Subnet do
   use Ash.Resource,
     domain: Cloudia.Aws,
+    extensions: [AshJsonApi.Resource],
     data_layer: Ash.DataLayer.Ets
 
   actions do
@@ -21,4 +22,9 @@ defmodule Cloudia.Aws.Subnet do
     belongs_to(:az, Cloudia.Aws.Az)
     has_many(:ec2_instances, Cloudia.Aws.Ec2Instance)
   end
+
+  json_api do
+    type "subnet"
+  end
+
 end

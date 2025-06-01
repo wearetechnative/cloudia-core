@@ -1,6 +1,7 @@
 defmodule Cloudia.Aws.AwsAccount do
   use Ash.Resource,
     domain: Cloudia.Aws,
+    extensions: [AshJsonApi.Resource],
     data_layer: Ash.DataLayer.Ets
 
   actions do
@@ -28,6 +29,11 @@ defmodule Cloudia.Aws.AwsAccount do
   relationships do
     has_many(:vpcs, Cloudia.Aws.Vpc)
   end
+
+  json_api do
+    type "aws_account"
+  end
+
 end
 
 

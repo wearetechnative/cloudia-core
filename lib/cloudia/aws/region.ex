@@ -1,6 +1,7 @@
 defmodule Cloudia.Aws.Region do
   use Ash.Resource,
     domain: Cloudia.Aws,
+    extensions: [AshJsonApi.Resource],
     data_layer: Ash.DataLayer.Ets
 
   actions do
@@ -19,4 +20,9 @@ defmodule Cloudia.Aws.Region do
   relationships do
     has_many(:vpcs, Cloudia.Aws.Vpc)
   end
+
+  json_api do
+    type "region"
+  end
+
 end
