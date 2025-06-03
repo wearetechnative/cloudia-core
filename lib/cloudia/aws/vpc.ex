@@ -5,7 +5,12 @@ defmodule Cloudia.Aws.Vpc do
     data_layer: Ash.DataLayer.Ets
 
   actions do
-    defaults(	[:create, :read, :update, :destroy])
+    defaults(	[:read, :update, :destroy])
+
+    create :create do
+      accept( [:name, :region_id, :aws_account_id] )
+    end
+
   end
 
   attributes do

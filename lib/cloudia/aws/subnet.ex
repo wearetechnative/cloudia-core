@@ -5,7 +5,12 @@ defmodule Cloudia.Aws.Subnet do
     data_layer: Ash.DataLayer.Ets
 
   actions do
-    defaults(	[:create, :read, :update, :destroy])
+    defaults(	[:read, :update, :destroy])
+
+    create :create do
+      accept( [:name, :vpc_id, :az_id] )
+    end
+
   end
 
   attributes do
